@@ -1,11 +1,7 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  :root {
+/* =================================
+   1. ESTILOS GLOBAIS E VARIÁVEIS
+   ================================= */
+:root {
     --verde-escuro: #0e4d2d;
     --verde-medio: #2D8C7F;
     --verde-claro: #98FB98;
@@ -15,80 +11,137 @@
     --cinza: #333;
 }
 
-  body {
-    font-family: "Segoe UI", Tahoma, G, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
+/* Reset básico e Rolagem Suave */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    background-color: #f4f4f4;
     color: var(--cinza);
-    
-  }
+}
 
-  #margem-body {
+#margem-body {
     margin-left: 15%;
     margin-right: 15%;
-  }
-  
-  /* Header */
-  header {
-    background-color:var(--verde-escuro);
-    color: white;
+}
+
+strong {
+    color: var(--verde-escuro);
+    font-weight: bold;
+}
+
+
+/* =================================
+   2. HEADER (CABEÇALHO)
+   ================================= */
+header {
+    background-color: var(--verde-escuro);
+    color: var(--branco);
     padding: 1.5rem 2rem;
     text-align: center;
-    
     position: relative;
-    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-    border-radius: 2px;
-    
-  }
+}
 
-  
-  header h1 {
-    margin: 0;
-    font-size: 80px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-    
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
 
-  }
-  
-  header p {
-    margin: 0.5rem 0 0;
+.logo {
+    width: 100px;
+    height: 100px;
+    margin-top: 15px;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+   margin: 0;
+   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+header p {
     font-size: 1.1rem;
-    opacity: 0.9;
+    color: #e0f2e9;
+    opacity: 0.95;
+    margin: 0.5rem 0 0;
     font-weight: 300;
-    
-  }
-  
-  /* Navegação */
-  nav {
-    background-color:var(--verde-escuro);
-    padding: 1rem 0;
+}
+
+
+/* =================================
+   3. NAVIGATION (NAVEGAÇÃO)
+   ================================= */
+nav.Botoes {
+    background-color: var(--verde-escuro);
+    padding: 0.8rem 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 999;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  nav a {
-    color: white;
+}
+
+nav.Botoes a {
+    color: var(--branco);
     text-decoration: none;
-    padding: 0.8rem 1.5rem;
-    margin: 0 0.5rem;
+    padding: 0.7rem 1.2rem;
+    margin: 0 0.3rem;
     border-radius: 25px;
-    display: inline-block;
     font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover {
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+nav.Botoes a:hover {
     background-color: #115f38;
-  }
-  
-  /* Container principal */
-  .cards-container {
+}
+
+
+/* =================================
+   4. SECTIONS (SEÇÕES PRINCIPAIS)
+   ================================= */
+section {
+    padding: 2.5rem 2rem;
+    background-color: var(--branco);
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: var(--verde-escuro);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+section p {
+    margin-bottom: 1rem;
+}
+
+
+/* =================================
+   5. COMPONENTES
+   ================================= */
+
+/* 5.1 - Cards de Descarte */
+.cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
@@ -99,42 +152,24 @@
     background: var(--branco);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    text-align: center;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.card-number {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    background:var(--verde-escuro);
-    color: var(--branco);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card-icon {
     font-size: 2.5rem;
-    padding: 1.5rem 0 0;
-    text-align: center;
+    padding-top: 1.5rem;
 }
 
 .card-content {
     padding: 1.5rem;
-    text-align: center;
 }
 
 .card-content h3 {
@@ -157,80 +192,10 @@
 .card:hover img {
     transform: scale(1.03);
 }
-  
-  /* Seções */
-  section {
-    padding: 2rem;
-    background-color: var(--branco);
-    margin: 2rem 0;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  section h2 {
-    color: var(--verde-escuro);
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-  }
-  
-  section p {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Cards */
-  .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-    padding: 1rem 0;
-  }
-  
-  .card {
-    background-color:var(--branco);
-    border-radius: 15px;
-    width: 250px;
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-number {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--verde-escuro);
-  }
-  
-  .card-icon {
-    font-size: 2rem;
-    margin: 0.5rem 0;
-  }
-  
-  .card-content h3 {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color:var(--verde-escuro);
-  }
-  
-  .card-content p {
-    font-size: 0.9rem;
-    margin: 0.5rem 0;
-  }
-  
-  .card-content img {
-    width: 100%;
-    border-radius: 10px;
-    margin-top: 1rem;
-  }
-  
-  /* Botão de localização */
-  .find-button {
-    background:var(--verde-escuro);
+
+/* 5.2 - Botão 'Encontre o Ponto' */
+.find-button {
+    background: var(--verde-escuro);
     color: var(--branco);
     border: none;
     padding: 1rem 2.5rem;
@@ -238,9 +203,9 @@
     border-radius: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: block;
-    margin: 3rem auto;
+    margin: 2rem auto 0;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -248,35 +213,30 @@
 
 .find-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     background: linear-gradient(to right, #1a6b3c, #3aa76d);
 }
-  
-  /* Layout de duas colunas */
-  .two-column-layout {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .two-column-layout {
+
+/* 5.3 - Layout de Duas Colunas */
+.two-column-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
-    margin: 4rem 0;
+    margin: 3rem 0;
 }
 
 .column {
-    background: white;
+    background: var(--branco);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
 }
 
 .column-header {
     background: linear-gradient(to right, #0e4d2d, #1a6b3c);
-    color: white;
+    color: var(--branco);
     padding: 1.2rem 2rem;
 }
 
@@ -290,43 +250,93 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço */
+}
+
+.text-content {
+    flex-grow: 1;
 }
 
 .text-content h3 {
-    color: #0e4d2d;
+    color: var(--verde-escuro);
     margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.text-content ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.text-content li {
+    margin-bottom: 0.8rem;
 }
 
 .visual-content {
-    margin-top: auto;
+    margin-top: auto; /* Empurra a imagem para baixo */
     padding-top: 1.5rem;
 }
 
 .column-image {
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
 .column-image:hover {
     transform: scale(1.02);
 }
-  
-  /* Estilo para strong */
-  strong {
-    color: #0e4d2d;
-    font-weight: bold;
-  }
-  
-  /* Footer */
-  footer {
-    background: linear-gradient(to right, #0e4d2d, #1a6b3c);
+
+/* 5.4 - Legislação */
+.legislacao-header h2 {
+    margin-bottom: 1rem;
+}
+
+/* 5.5 - Botões de Contato */
+.contact-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
     color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.contact-button:hover {
+    transform: scale(1.05);
+}
+
+.contact-button.whatsapp {
+    background-color: #25D366;
+}
+
+.contact-button.instagram {
+    background: radial-gradient(circle at 30% 30%, #feda75, #d62976, #962fbf);
+}
+
+
+/* =================================
+   6. FOOTER (RODAPÉ)
+   ================================= */
+footer {
+    background: linear-gradient(to right, #0e4d2d, #1a6b3c);
+    color: var(--branco);
     text-align: center;
     padding: 2rem;
-    margin-top: 4rem;
-    font-family: 'Inter', sans-serif;
+    margin-top: 2rem;
 }
 
 footer p {
@@ -335,121 +345,90 @@ footer p {
     opacity: 0.8;
 }
 
+
+/* =================================
+   7. ELEMENTOS FLUTUANTES
+   ================================= */
+
+/* 7.1 - Botão Voltar ao Topo */
 .botao-topo {
-  position: fixed;
-  left: 20px;
-  bottom: 40px;
-  background-color: #0e4d2d;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
-  z-index: 1000;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background-color: var(--verde-escuro);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
 }
 
 .botao-topo:hover {
-  background-color: #0e4d2d;
+    background-color: #115f38;
 }
-  
+
+/* 7.2 - Botão Flutuante do WhatsApp */
+.whatsapp-floating {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 28px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-floating:hover {
+    transform: scale(1.1);
+}
+
+
+/* =================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   ================================= */
 @media (max-width: 768px) {
     #margem-body {
-      margin-left: 0;
-      margin-right: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
+
     header h1 {
-      font-size: 2rem;
+        font-size: 2.2rem;
     }
-    
+
     header p {
-      font-size: 1rem;
+        font-size: 1rem;
     }
-    
-    nav a {
-      padding: 0.6rem 1rem;
-      margin: 0.3rem;
-      display: inline-block;
+
+    .header-content {
+        flex-direction: column;
+        gap: 0.5rem;
     }
-    
-    .container {
-      padding: 0 1rem;
+
+    nav.Botoes a {
+        padding: 0.6rem 1rem;
+        margin: 0.3rem;
     }
-    
+
     section {
-      padding: 1.5rem;
+        padding: 2rem 1.5rem;
+        margin: 1.5rem 0;
     }
-    
-    .cards-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    
+
     .two-column-layout {
-      flex-direction: column;
+        grid-template-columns: 1fr; /* Muda para uma única coluna */
     }
-  }
-
-  /* Header visual aprimorado */
-.header-content {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  justify-content: center;
 }
-
-.logo {
-  width: 100px;
-  height: 100px;
-  margin-top: 15px;
-  object-fit: cover;
-}
-
-
-
-header h1 {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-header p {
-  font-size: 1.1rem;
-  color: #e0f2e9;
-  opacity: 0.95;
-}
-
-/* Menu com ícones e sticky */
-nav.Botoes {
-  background-color: #0e4d2d;
-  padding: 0.8rem 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  
-}
-
-nav.Botoes a {
-  color: white;
-  text-decoration: none;
-  padding: 0.7rem 1.2rem;
-  margin: 0 0.3rem;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-
