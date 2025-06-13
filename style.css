@@ -448,3 +448,8 @@ nav.Botoes a {
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
+
